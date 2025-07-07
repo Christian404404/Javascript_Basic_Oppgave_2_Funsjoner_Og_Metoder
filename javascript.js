@@ -322,6 +322,22 @@ Eksempel 4: (["En", "To", "Tre"], "To") --> ["En", "Tre"]
 
 // Skriv koden for oppgave 7 her
 
+const myArr1 = ["Rød", "Grønn"];
+const myArr2 = ["Rød", "Grønn", "Blå"];
+const myArr3 = ["En", "To", "Tre"];
+
+function arrayChecker(array, string) {
+  if (array.includes(string)) {
+    array.splice(array.indexOf(string), 1);
+    return array;
+  } else {
+    array.push(string);
+    return array;
+  }
+}
+console.log("Before function call", myArr3);
+console.log(arrayChecker(myArr3, "Fire"));
+
 /******************************************************************************
 8.
 
@@ -349,3 +365,30 @@ Returner "😎Kun primitive verdier😎".
 ******************************************************************************/
 
 // Skriv koden for oppgave 8 her
+
+// Not going to refactor this since it would involve more advanced stuff that we not learned yet.
+// But the idea here would be to gather all the verdi that wants coolemoji appended to the end.
+// Make the typeof check an array, and pass that in as a guard statement, so it's more modular and if other
+// guard statements needs to be added, it can be done directly into the array of datatypes.
+
+const notACatVerifiedValue = ["En", 1, true, false];
+const myCoolString = "Catgirls are cool Joe";
+const myCoolNumber = 69;
+const myCoolBoolean = false;
+
+function typeChecker(verdi) {
+  if (typeof verdi === "string") {
+    return verdi + "😎";
+  } else if (typeof verdi === "number") {
+    return verdi * 2 + "😎";
+  } else if (typeof verdi === "boolean") {
+    return verdi ? "😎Ja😎" : "😎Slapp av😎";
+  } else {
+    return "😎Kun primitive verdier😎";
+  }
+}
+
+console.log(typeChecker(myCoolString));
+console.log(typeChecker(myCoolNumber));
+console.log(typeChecker(myCoolBoolean));
+console.log(typeChecker(notACatVerifiedValue));
